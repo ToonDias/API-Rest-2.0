@@ -3,19 +3,19 @@ const Connection = require("../database/database");
 
 const Filme = Connection.define("filmes", {
     titulo: {
-        typeof: Sequelize.STRING,
-        allowerNull: false
+        type: Sequelize.STRING,
+        allowNull: false
     },
     genero: {
-        typeof: Sequelize.STRING,
-        allowerNull: false      
+        type: Sequelize.STRING,
+        allowNull: false      
     },
     descricao: {
-        tuppeof: Sequelize.TEXT,
-        allowerNull: false
+        type: Sequelize.TEXT,
+        allowNull: false
     }
 });
 
-//Filme.sync({force: true});
+Filme.sync({force: true});
 
 module.exports = Filme;

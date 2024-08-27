@@ -1,25 +1,30 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const filmesController = require("./filmes/filmescontroller");
 
 const app = express();
+
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.get("/filmes", (req, res) => {
+app.use(filmesController);
+
+app.get("/admin/filmes", (req, res) => {
     res.send("Filmes!");
 });
 
-app.get("/filme/:id", (req, res) => {
+app.get("/admin/filme/:id", (req, res) => {
     var id = req.params.id;
     res.send("Filme de ID: " + id);
 });
 
-app.post("/filme", (req, res) => {
+app.post("/admin/filme", (req, res) => {
     res.send("Novo filme salvo!");
 });
 
-app.delete("/filme/:id", (req, res) => {
+app.delete("/admin/filme/:id", (req, res) => {
     res.send("Filme deletado!");
 });
 
